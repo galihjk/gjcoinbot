@@ -9,12 +9,12 @@ function handle_message_others($botdata){
     f("bot_kirim_perintah")("sendMessage",[
         "chat_id"=>$chat_id,
         "text"=>
-            "<b>$first_name</b>\n"
-            ."ID: <pre>$from_id</pre>\n"
+            "*$first_name*\n"
+            ."ID: `$from_id`\n"
             ."COIN: $coin_txt\n"
             ."/transfer"
         ,
-        "parse_mode"=>"HTML",
+        "parse_mode"=>"MarkDown",
     ]);
     return true;
 }
