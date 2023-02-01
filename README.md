@@ -10,6 +10,7 @@ CREATE TABLE `users` (
   `coin` int(11) DEFAULT NULL,
   `banned` tinyint(1) NOT NULL,
   `bot_active` datetime DEFAULT NULL
+  , PRIMARY KEY (`id`)
 )
 
 config.php

@@ -7,9 +7,11 @@ function proses_transfer_1($botdata) {
         "chat_id"=>$chat_id,
         "text"=>$textsend,
         "parse_mode"=>"HTML",
+        "reply_to_message_id"=>$botdata["message_id"],
         'reply_markup' => [
             'force_reply'=>true,
             'input_field_placeholder'=>'ID Pengguna',
+            'selective'=>true,
         ],
     ]);
     return true;
