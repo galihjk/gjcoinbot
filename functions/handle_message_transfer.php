@@ -9,8 +9,7 @@ function handle_message_transfer($botdata){
         return f("proses_transfer_2")($botdata);
     }
     elseif(!empty($botdata['reply_to_message']['text'])
-    and f("str_contains")($botdata['reply_to_message']['text'], "PROSES TRANSFER (2/4)")
-    and is_numeric($botdata["text"]) and $botdata["text"] > 0){
+    and f("str_contains")($botdata['reply_to_message']['text'], "PROSES TRANSFER (2/4)")){
         return f("proses_transfer_3")($botdata);
     }
     return false;
