@@ -9,6 +9,11 @@ function handle_callback_query_transfer($botdata){
             'text' => "under".print_r($data,true),
             'show_alert' => true,
         ]);
+        f("bot_kirim_perintah")("sendMessage",[
+            "chat_id"=>$chat_id,
+            "text"=>print_r($botdata,true),
+            "parse_mode"=>"HTML",
+        ]);
         return true;
     }
     return false;
