@@ -1,16 +1,15 @@
 <?php
 function proses_transfer_2($botdata) {
     $text = $botdata["text"] ?? "";
+    $chat_id = $botdata["chat"]["id"];
     $usertujuan = f("get_user")($text);
     if($usertujuan){
-        $textsend = "<b>PROSES TRANSFER (2/4)</b>\n";
-        $textsend .= print_r($usertujuan,true);
-        $textsend .= "Masukkan nominal coin yang ingin ditransfer\n";
-        $chat_id = $botdata["chat"]["id"];
+        $textsend = "*PROSES TRANSFER (2/4)*\n";
+        $textsend .= "Masukkan nominal coin yang ingin ditransfer untuk: `$usertujuan` (".$usertujuan['first_name'].")\n";
         f("bot_kirim_perintah")("sendMessage",[
             "chat_id"=>$chat_id,
             "text"=>$textsend,
-            "parse_mode"=>"HTML",
+            "parse_mode"=>"MarkDown",
             'reply_markup' => [
                 'force_reply'=>true,
                 'input_field_placeholder'=>'Tulis angka saja',
@@ -22,10 +21,6 @@ function proses_transfer_2($botdata) {
             "chat_id"=>$chat_id,
             "text"=>"Pengguna dengan ID '$text' tidak ditemukan.",
             "parse_mode"=>"HTML",
-            'reply_markup' => [
-                'force_reply'=>true,
-                'input_field_placeholder'=>'Tulis angka saja',
-            ],
         ]);
     }
     return true;
