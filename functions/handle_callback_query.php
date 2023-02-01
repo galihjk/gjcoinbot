@@ -2,6 +2,8 @@
 function handle_callback_query($botdata){
     if(!f("handle_botdata_functions")($botdata,[
         "handle_callback_query_transfer",
+        "handle_callback_query_admacctf",
+        "handle_callback_query_cancel",
     ])){
         f("bot_kirim_perintah")('answerCallbackQuery',[
             'callback_query_id' => $botdata['id'],
