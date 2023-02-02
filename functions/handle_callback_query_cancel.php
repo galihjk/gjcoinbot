@@ -9,7 +9,7 @@ function handle_callback_query_cancel($botdata){
         $chat_id = $botdata["message"]["chat"]["id"];
         f("bot_kirim_perintah")("editMessageText",[
             "chat_id"=>$chat_id,
-            "text"=>"❌DIBATALKAN\n".$botdata["from"]["id"]."(".date("Y-M-d H:i").")\n\n".$botdata["message"]["text"],
+            "text"=>"❌DIBATALKAN\n".$botdata["from"]["id"]." (".date("Y-m-d H:i").")\n\n".$botdata["message"]["text"],
             "message_id"=>$botdata["message"]["message_id"],
         ]);
         return true;
