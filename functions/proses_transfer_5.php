@@ -21,7 +21,7 @@ function proses_transfer_5($botdata){
     $textsend = "<b>PROSES TRANSFER</b>\n✅ BERHASIL!\n";
     $textsend .= "Dari: [$dari_id]\n($dari_nama)\n";
     $textsend .= "Tujuan: [$untuk_id]\n($untuk_nama)\n";
-    $textsend .= "Nominal: [$nominal_txt]\n";
+    $textsend .= "Nominal: [$nominal]\n";
     $textsend .= "Waktu: [".date("Y-m-d H:i:s")."]\n";
     f("bot_kirim_perintah")("editMessageText",[
         "chat_id"=>$admacctfdata[4],
