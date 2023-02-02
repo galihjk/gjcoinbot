@@ -18,6 +18,7 @@ function handle_message($botdata){
     if(!$banned){
         f("handle_botdata_functions")($botdata,[
             "handle_message_transfer",
+            "handle_message_msgcmd",
             "handle_message_others",
         ]);
     }
