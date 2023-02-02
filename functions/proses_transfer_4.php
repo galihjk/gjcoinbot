@@ -22,8 +22,8 @@ function proses_transfer_4($botdata){
             "chat_id"=>f("get_config")("admin_chat_id"),
             "text"=>"`$dari_id` ingin mengirim koin kepada `$untuk_id` sejumlah $nominal_txt",
             'reply_markup'=>f("gen_inline_keyboard")([
-                ['✅ Setuju', 'admacctf_'.$dari_id.'_'.$untuk_id.'_'.$nominal_txt.'_'.$chat_id.'_'.$botdata["message"]["message_id"]],
-                ['❌ Batalkan', 'cancel'],
+                ['✅ Setuju', 'admacctf_'.$dari_id.'_'.$untuk_id.'_'.$nominal.'_'.$chat_id.'_'.$botdata["message"]["message_id"]],
+                ['❌ Batalkan', 'admnoacc_'.$chat_id.'_'.$botdata["message"]["message_id"]],
             ]),
             "parse_mode"=>"MarkDown",
         ]);
