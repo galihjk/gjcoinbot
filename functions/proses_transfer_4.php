@@ -23,19 +23,21 @@ function proses_transfer_4($botdata){
             "text"=>"`$dari_id` ingin mengirim koin kepada `$untuk_id` sejumlah $nominal_txt",
             'reply_markup'=>f("gen_inline_keyboard")([
                 ['✅ Setuju', 'admacctf_'.$dari_id.'_'.$untuk_id.'_'.$nominal_txt.'_'.$chat_id.'_'.$botdata["message"]["message_id"]],
-                ['🗙 Batalkan', 'cancel'],
-            ]),            
+                ['❌ Batalkan', 'cancel'],
+            ]),
             "parse_mode"=>"MarkDown",
         ]);
+        $usertujuan_nama = f("get_user")($untuk_id)["first_name"] ?? "";
         $textsend = "<b>PROSES TRANSFER (4/4)</b>\n";
         $textsend .= "Menunggu Konfirmasi Admin\n";
         $textsend .= "Dari: [$dari_id]\n(".$botdata["from"]["first_name"].")\n";
-        $textsend .= "Tujuan: [$usertujuan_id]\n($usertujuan_nama)\n";
+        $textsend .= "Tujuan: [$untuk_id]\n($usertujuan_nama)\n";
         $textsend .= "Nominal: [$nominal_txt]\n";
         f("bot_kirim_perintah")("editMessageText",[
             "chat_id"=>$chat_id,
             "text"=>$textsend,
             "message_id"=>$botdata["message"]["message_id"],
+            "parse_mode"=>"HTML",
         ]);
     }
 }

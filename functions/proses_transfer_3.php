@@ -24,7 +24,7 @@ function proses_transfer_3($botdata) {
             "parse_mode"=>"HTML",
             'reply_markup'=>f("gen_inline_keyboard")([
                 ['✅ Kirim', 'tf_'.$usertujuan_id.'_'.$nominal],
-                ['🗙 Batal', 'cancel'],
+                ['❌ Batal', 'cancel'],
             ]),
         ]);
     }
