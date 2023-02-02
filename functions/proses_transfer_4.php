@@ -10,13 +10,13 @@ function proses_transfer_4($botdata){
     if($my_coin<$nominal){
         f("bot_kirim_perintah")('answerCallbackQuery',[
             'callback_query_id' => $botdata['id'],
+            'text' => "Koin anda tidak cukup! \n($my_coin)",
+            'show_alert' => true,
         ]);
     }
     else{
         f("bot_kirim_perintah")('answerCallbackQuery',[
             'callback_query_id' => $botdata['id'],
-            'text' => "Koin anda tidak cukup! \n($my_coin)",
-            'show_alert' => true,
         ]);
         f("bot_kirim_perintah")("sendMessage",[
             "chat_id"=>f("get_config")("admin_chat_id"),
