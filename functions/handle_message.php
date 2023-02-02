@@ -12,7 +12,7 @@ function handle_message($botdata){
             $banned = true;
         }
         else{
-            f("update_user")($botdata["from"]);
+            f("update_user")($botdata["from"],f("is_private")($botdata));
         }
     }
     if(!$banned){

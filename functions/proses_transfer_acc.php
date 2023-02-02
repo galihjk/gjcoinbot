@@ -47,12 +47,19 @@ function proses_transfer_acc($botdata){
         $textsend .= "Dari: [$dari_id]\n($dari_nama)\n";
         $textsend .= "Tujuan: [$untuk_id]\n($untuk_nama)\n";
         $textsend .= "Nominal: [$nominal]\n";
-        $textsend .= "Waktu: [".date("Y-m-d H:i:s")."]\n";
+        $textsend .= "Waktu: [".date("Y-m-d H:i:s")."]\n\n/start";
         f("bot_kirim_perintah")("sendMessage",[
             "chat_id"=>$admacctfdata[4],
             "text"=>$textsend,
             "parse_mode"=>"HTML",
         ]);
+        if(!empty($untuk_userdata['bot_active'])){
+            f("bot_kirim_perintah")("sendMessage",[
+                "chat_id"=>$untuk_id,
+                "text"=>$textsend,
+                "parse_mode"=>"HTML",
+            ]);
+        }
     }
 
 
