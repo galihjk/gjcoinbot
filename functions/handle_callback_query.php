@@ -1,6 +1,7 @@
 <?php
 function handle_callback_query($botdata){
     if(!f("handle_botdata_functions")($botdata,[
+        "handle_callback_query_click_check",
         "handle_callback_query_transfer",
         "handle_callback_query_cancel",
     ])){

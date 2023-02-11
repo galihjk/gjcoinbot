@@ -14,13 +14,13 @@ function proses_transfer_4($botdata){
             'show_alert' => true,
         ]);
     }
-    else{
+    elseif($dari_id != $untuk_id){
         f("bot_kirim_perintah")('answerCallbackQuery',[
             'callback_query_id' => $botdata['id'],
         ]);
         f("bot_kirim_perintah")("sendMessage",[
             "chat_id"=>f("get_config")("admin_chat_id"),
-            "text"=>"`$dari_id` ingin mengirim koin kepada `$untuk_id` sejumlah $nominal_txt",
+            "text"=>"`$dari_id` @" . f("get_user")($dari_id)["username"] ." ingin mengirim koin kepada `$untuk_id` @" . f("get_user")($untuk_id)["username"] ." sejumlah $nominal_txt",
             'reply_markup'=>f("gen_inline_keyboard")([
                 ['✅ Setuju', 'admacctf_'.$dari_id.'_'.$untuk_id.'_'.$nominal.'_'.$chat_id.'_'.$botdata["message"]["message_id"]],
                 ['❌ Batalkan', 'admnoacc_'.$chat_id.'_'.$botdata["message"]["message_id"]],
