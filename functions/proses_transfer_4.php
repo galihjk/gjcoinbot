@@ -14,7 +14,14 @@ function proses_transfer_4($botdata){
             'show_alert' => true,
         ]);
     }
-    elseif($dari_id != $untuk_id){
+    elseif($dari_id == $untuk_id){
+        f("bot_kirim_perintah")('answerCallbackQuery',[
+            'callback_query_id' => $botdata['id'],
+            'text' => "Tidak dapat mengirim koin ke diri sendiri.",
+            'show_alert' => true,
+        ]);
+    }
+    else{
         f("bot_kirim_perintah")('answerCallbackQuery',[
             'callback_query_id' => $botdata['id'],
         ]);

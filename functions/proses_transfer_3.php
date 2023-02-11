@@ -1,8 +1,8 @@
 <?php
 function proses_transfer_3($botdata) {
+    $chat_id = $botdata["chat"]["id"];
     if(is_numeric($botdata["text"]) and $botdata["text"] > 0){
         $text = $botdata["text"] ?? "";
-        $chat_id = $botdata["chat"]["id"];
 
         $explode = explode("untuk: ", $botdata['reply_to_message']['text']);
         $explode2 = explode(" (", $explode[1]);
