@@ -33,7 +33,7 @@ function proses_transfer_acc($botdata){
         if(abs(time()-$last_transaction) <= 5 * 60){
             f("bot_kirim_perintah")('answerCallbackQuery',[
                 'callback_query_id' => $botdata['id'],
-                'text' => "Pengiriman Koin dari $dari_id ke $untuk_id sebesar $nominal sudah dilakukan pada ".date("Y-m-d H:i:s",$last_transaction).". Tunggu 5 menit lahi jika ingin melakukan transaksi yang sama.",
+                'text' => "Pengiriman Koin dari $dari_id ke $untuk_id sebesar $nominal sudah dilakukan pada ".date("Y-m-d H:i:s",$last_transaction).". Tunggu 5 menit jika ingin melakukan transaksi yang sama.",
                 'show_alert' => true,
             ]);
         }
