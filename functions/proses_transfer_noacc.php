@@ -4,6 +4,7 @@ function proses_transfer_noacc($botdata){
     f("bot_kirim_perintah")('answerCallbackQuery',[
         'callback_query_id' => $botdata['id'],
     ]);
+    f("data_save")("waitACC_".$admacctfdata[1],false);
     $chat_id = $botdata["message"]["chat"]["id"];
     f("bot_kirim_perintah")("editMessageText",[
         "chat_id"=>$chat_id,
@@ -12,9 +13,9 @@ function proses_transfer_noacc($botdata){
     ]);
     $textsend = "❌Tidak disetujui!";
     f("bot_kirim_perintah")("sendMessage",[
-        "chat_id"=>$admacctfdata[1],
+        "chat_id"=>$admacctfdata[2],
         "text"=>$textsend,
         "parse_mode"=>"HTML",
-        "reply_to_message_id"=>$admacctfdata[2],
+        "reply_to_message_id"=>$admacctfdata[3],
     ]);
 }

@@ -16,6 +16,7 @@ function proses_transfer_acc($botdata){
         f("bot_kirim_perintah")('answerCallbackQuery',[
             'callback_query_id' => $botdata['id'],
         ]);
+        f("data_save")("waitACC_$dari_id",false);
         f("bot_kirim_perintah")("editMessageText",[
             "chat_id"=>$chat_id,
             "text"=>"❌GAGAL: Coin tidak cukup ($dari_coin)\n".$botdata["from"]["id"]." (".date("Y-m-d H:i:s").")\n\n".$botdata["message"]["text"],

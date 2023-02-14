@@ -39,7 +39,7 @@ function proses_transfer_4($botdata){
                 "text"=>"`$dari_id` @" . f("get_user")($dari_id)["username"] ." ingin mengirim koin kepada `$untuk_id` @" . f("get_user")($untuk_id)["username"] ." sejumlah $nominal_txt",
                 'reply_markup'=>f("gen_inline_keyboard")([
                     ['✅ Setuju', 'admacctf_'.$dari_id.'_'.$untuk_id.'_'.$nominal.'_'.$chat_id.'_'.$botdata["message"]["message_id"]],
-                    ['❌ Batalkan', 'admnoacc_'.$chat_id.'_'.$botdata["message"]["message_id"]],
+                    ['❌ Batalkan', 'admnoacc_'.$dari_id.'_'.$chat_id.'_'.$botdata["message"]["message_id"]],
                 ]),
                 "parse_mode"=>"MarkDown",
             ]);
