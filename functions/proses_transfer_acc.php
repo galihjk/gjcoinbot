@@ -39,6 +39,7 @@ function proses_transfer_acc($botdata){
         }
         else{
             f("data_save")("trans $dari_id to $untuk_id $nominal",time());
+            f("data_save")("waitACC_$dari_id",false);
             f("bot_kirim_perintah")('answerCallbackQuery',[
                 'callback_query_id' => $botdata['id'],
             ]);
